@@ -3,6 +3,7 @@ config.json
 
 # Ignoring debug tests
 filebuffer/*
+!filebuffer/.gitkeep
 
 # Ignoring Python Cache
 __pycache__/
