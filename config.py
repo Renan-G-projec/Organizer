@@ -1,4 +1,4 @@
-import json
+from json import dumps
 config_file = open("config.json", "w")
 
 # Initial menu
@@ -12,7 +12,7 @@ sufix = input("Insert the sufix that the files may have after the number of the 
 
 # Parsing and writing JSON
 config_dict = {"path": path, "sufix": sufix}
-config_file.write(json.dumps(config_dict, indent=4))
+config_file.write(dumps(config_dict, indent=4))
 
 # Finalization
 print("=" * 41)
