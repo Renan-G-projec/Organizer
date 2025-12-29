@@ -1,0 +1,14 @@
+# Ignoring config.json tests made during debugging
+config.json
+
+# Ignoring debug tests
+filebuffer/*
+
+# Ignoring Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignoring some system temporary files
+.DS_Store
+.directory
