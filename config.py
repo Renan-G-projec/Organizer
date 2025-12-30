@@ -17,6 +17,7 @@ def run_config():
 
     # Finalization
     print("=" * 41)
+    config_file.close()
 
 # If config.py was directly executed
 if __name__ == "__main__":
