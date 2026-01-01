@@ -16,11 +16,12 @@ config_file.close()
 
 # Colecting metadata
 file_buffer = os.listdir("filebuffer")
-file_buffer.pop(0) # pops at 0 for ignorating .gitkeep
 file_buffer_adress = os.getcwd() + "/filebuffer"
 file_buffer_dict = {}
 
 for file in file_buffer:
+    if file == '.gitkeep':
+        continue 
     creation_time = datetime.fromtimestamp(os.stat(f"filebuffer/{file}").st_ctime)
     creation_time_array = [creation_time.year, creation_time.month, creation_time.day]
     file_buffer_dict[file] = creation_time_array
@@ -30,6 +31,8 @@ os.chdir(config_data['path'])
 
 # Iterating over each file to check folders
 for file in file_buffer:
+    if file == '.gitkeep':
+        continue
     year = file_buffer_dict[file][0]
     month = file_buffer_dict[file][1]
     day = file_buffer_dict[file][2]
