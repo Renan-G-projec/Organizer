@@ -4,6 +4,8 @@ from datetime import datetime # For parsing file's metadata
 from shutil import move
 import os
 
+# IGNORATING SOME FILES
+file_buffer_ignore = ['.gitkeep']
 
 # Running the config file
 if not os.path.exists("config.json"):
@@ -20,7 +22,7 @@ file_buffer_adress = os.getcwd() + "/filebuffer"
 file_buffer_dict = {}
 
 for file in file_buffer:
-    if file == '.gitkeep':
+    if file in file_buffer_ignore:
         continue 
     creation_time = datetime.fromtimestamp(os.stat(f"filebuffer/{file}").st_ctime)
     creation_time_array = [creation_time.year, creation_time.month, creation_time.day]
@@ -31,7 +33,7 @@ os.chdir(config_data['path'])
 
 # Iterating over each file to check folders
 for file in file_buffer:
-    if file == '.gitkeep':
+    if file in file_buffer_ignore:
         continue
     year = file_buffer_dict[file][0]
     month = file_buffer_dict[file][1]
